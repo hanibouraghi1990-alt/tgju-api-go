@@ -100,7 +100,7 @@ func (s *Server) build() http.Handler {
 	handle("/v1/markets/{market}/items/{key}", "One instrument of one market", s.handleMarketItem)
 	handle("/v1/items/{key}", "One instrument, looked up across every market", s.handleItem)
 	handle("/v1/snapshot", "Every market in one response", s.handleSnapshot)
-
+handle("/v1/daraeiman/prices", "Live prices for Daraei Man", s.handleDaraeimanPrices)
 	handle("/api/price/currency", "Currency prices in the shape of the original Python API",
 		s.handleLegacy(tgju.Currency, legacyFlat))
 	handle("/api/price/gold", "Gold prices in the shape of the original Python API",
